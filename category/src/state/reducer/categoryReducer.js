@@ -1,4 +1,5 @@
-const reducer = (state = 0,action)=>{
+const initialState = []
+const reducer = (state=initialState,action)=>{
     switch (action.type) {
         case "fetch-data":
             return action.payload;
