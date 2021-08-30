@@ -11,7 +11,7 @@ export const getCategories = () => async (dispatch) => {
         t.children = child;
         t.value = t.name;
         t.title = t.categoryId;
-        
+
         //call the function again if the children array is not empty
         if (t.children.length > 0) {
           t.children.map((gs) => {

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Button, Tree, TreeSelect } from "antd";
+import { Button, TreeSelect } from "antd";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state/index";
 const TreeComponent = () => {
@@ -11,7 +11,7 @@ const TreeComponent = () => {
 
   const handleChange = (value) => {
     setValue(value);
-    alert(value)
+    alert(value);
   };
 
   return (
@@ -33,8 +33,7 @@ const TreeComponent = () => {
           placeholder="Please Select"
           onChange={handleChange}
           treeData={category}
-        >
-        </TreeSelect>
+        ></TreeSelect>
       </div>
     </div>
   );
