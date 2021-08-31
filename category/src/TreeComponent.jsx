@@ -4,18 +4,20 @@ import { Button, TreeSelect } from "antd";
 import { bindActionCreators } from "redux";
 import { actionCreators } from "./state/index";
 const TreeComponent = () => {
+  //get the state from redux
   const { category } = useSelector((state) => state);
   const dispatch = useDispatch();
+  //get all the actions
   const { getCategories } = bindActionCreators(actionCreators, dispatch);
   const [value, setValue] = useState("");
-
+  //alert the categoryId when item was been selected
   const handleChange = (value) => {
     setValue(value);
     alert(value);
   };
-
   return (
     <div>
+      {/* fetch the data from redux */}
       <Button
         type="primary"
         onClick={() => {

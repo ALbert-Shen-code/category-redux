@@ -2,8 +2,9 @@ import * as api from "../../api/index";
 export const getCategories = () => async (dispatch) => {
   try {
     const { data } = await api.fetchData();
+    //Filter the data for the root list(parent = root)
     let rootList = data.filter((rootItem) => rootItem.parent === "root");
-
+    //sort the data my number
     rootList = rootList.sort((a, b) => {
       let m = a.categoryId.slice(-1);
       let n = b.categoryId.slice(-1);
@@ -13,10 +14,13 @@ export const getCategories = () => async (dispatch) => {
     rootList.map((item) => {
       item.children = [];
       const hasChild = (t) => {
+        //find the child
         let child = data.filter((s) => s.parent === t.categoryId);
         t.children = child;
+        //add value and title for the treeSelect of ant UI
         t.value = t.categoryId;
         t.title = t.name;
+        //Sort the child
         t.children = t.children.sort((a, b) => {
           let m = a.categoryId.slice(-1);
           let n = b.categoryId.slice(-1);
